@@ -1,0 +1,9 @@
+.selected-category {
+    border-radius: 8px 0 0 8px;
+    background-color: #fafafa;
+    box-shadow: -2px -2px 4px 2px #ffffff, 2px 2px 4px 2px #dddddd;
+  }
+  
+  .selected-category-text {
+    color: #971b13 !important;
+  }
