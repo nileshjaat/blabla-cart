@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { shoes, sunglasses, bags } from '../../View/Home/dummyData';
 import ProductItem from '../ProductItem/ProductItem';
 import './ProductList.css';
 import {
@@ -14,81 +15,53 @@ import {
 
 function ProductList() {
   const [showShoes, setShowShoes] = useState(true);
-  const [showJackets, setShowJackets] = useState(false);
-  const [showHats, setShowHats] = useState(false);
+  const [showSunglasses, setShowSunglasses] = useState(false);
+  const [showBags, setShowBags] = useState(false);
 
   const handleShoes = () => {
     setShowShoes(true);
-    setShowJackets(false);
-    setShowHats(false);
+    setShowSunglasses(false);
+    setShowBags(false);
   };
 
-  const handleJackets = () => {
+  const handleSunglasses = () => {
     setShowShoes(false);
-    setShowJackets(true);
-    setShowHats(false);
+    setShowSunglasses(true);
+    setShowBags(false);
   };
 
-  const handleHats = () => {
+  const handleBags = () => {
     setShowShoes(false);
-    setShowJackets(false);
-    setShowHats(true);
+    setShowSunglasses(false);
+    setShowBags(true);
   };
 
-  let items = [
-    {
-      id: 1,
-      name: 'abcd',
-      image:
-        'https://assets.ajio.com/medias/sys_master/root/h5a/h59/13018715881502/-1117Wx1400H-460342492-blue-MODEL.jpg',
-      isInCart: false,
-    },
-    {
-      id: 2,
-      name: 'efgh',
-      image: 'https://m.media-amazon.com/images/I/71D9ImsvEtL._UY500_.jpg',
-      isInCart: true,
-    },
-    {
-      id: 3,
-      name: 'ijkl',
-      image: 'https://m.media-amazon.com/images/I/61utX8kBDlL._UL1100_.jpg',
-      isInCart: false,
-    },
-    {
-      id: 4,
-      name: 'mnop',
-      image: 'https://m.media-amazon.com/images/I/41Leu3gBUFL.jpg',
-      isInCart: false,
-    },
-    {
-      id: 5,
-      name: 'qrst',
-      image:
-        'https://assets.ajio.com/medias/sys_master/root/hd4/h99/14092964397086/-1117Wx1400H-460455972-black-MODEL.jpg',
-      isInCart: false,
-    },
-    {
-      id: 6,
-      name: 'uvwx',
-      image:
-        'https://static.nike.com/a/images/t_default/z12golttmgjbp3zhxvvq/revolution-5-road-running-shoes-8P3bh3.png',
-      isInCart: false,
-    },
-  ];
-
-  const getShoesList = () => {
+  const getList = () => {
     return (
       <>
-        {items.map(({ id, name, image, isInCart }) => (
-          <ProductItem
-            key={id}
-            id={id}
-            name={name}
-            image={image}
-            isInCart={isInCart}
-          />
-        ))}
+        {showShoes && (
+          <>
+            {shoes.map(({ id, name, image }) => (
+              <ProductItem key={id} id={id} name={name} image={image} />
+            ))}
+          </>
+        )}
+
+        {showSunglasses && (
+          <>
+            {sunglasses.map(({ id, name, image }) => (
+              <ProductItem key={id} id={id} name={name} image={image} />
+            ))}
+          </>
+        )}
+
+        {showBags && (
+          <>
+            {bags.map(({ id, name, image }) => (
+              <ProductItem key={id} id={id} name={name} image={image} />
+            ))}
+          </>
+        )}
       </>
     );
   };
@@ -96,10 +69,10 @@ function ProductList() {
   let category =
     showShoes === true
       ? 'Shoes'
-      : showJackets
-      ? 'Jackets'
-      : showHats
-      ? 'Hats'
+      : showSunglasses
+      ? 'Sunglasses'
+      : showBags
+      ? 'Bags'
       : '';
 
   return (
@@ -119,27 +92,29 @@ function ProductList() {
         </Category>
 
         <Category
-          onClick={handleJackets}
-          className={showJackets === true ? 'selected-category' : ''}
+          onClick={handleSunglasses}
+          className={showSunglasses === true ? 'selected-category' : ''}
         >
           <Tab>
             <CategoryName
-              className={showJackets === true ? 'selected-category-text' : ''}
+              className={
+                showSunglasses === true ? 'selected-category-text' : ''
+              }
             >
-              Jackets
+              Sunglasses
             </CategoryName>
           </Tab>
         </Category>
 
         <Category
-          onClick={handleHats}
-          className={showHats === true ? 'selected-category' : ''}
+          onClick={handleBags}
+          className={showBags === true ? 'selected-category' : ''}
         >
           <Tab>
             <CategoryName
-              className={showHats === true ? 'selected-category-text' : ''}
+              className={showBags === true ? 'selected-category-text' : ''}
             >
-              Hats
+              Bags
             </CategoryName>
           </Tab>
         </Category>
@@ -147,7 +122,7 @@ function ProductList() {
 
       <ProductsContainer>
         <ProductsTitle>Products under {category}</ProductsTitle>
-        <ProductsListWrapper> {getShoesList()} </ProductsListWrapper>
+        <ProductsListWrapper> {getList()} </ProductsListWrapper>
       </ProductsContainer>
     </Container>
   );
