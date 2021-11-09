@@ -49,8 +49,8 @@ export const UserDetails = styled.h1`
 
 export const CartCount = styled.div`
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   background-color: #000000;
   display: flex;
   align-items: center;
