@@ -41,7 +41,7 @@ export const shoes = [
 
   {
     id: create_UUID(),
-    name: 'Vintage Red Shoes',
+    name: 'Vintage Shoes',
     image:
       'https://c4.wallpaperflare.com/wallpaper/467/922/553/adidas-backgrounds-for-laptop-wallpaper-preview.jpg',
   },

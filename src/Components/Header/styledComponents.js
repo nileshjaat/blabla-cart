@@ -46,3 +46,25 @@ export const UserDetails = styled.h1`
   letter-spacing: 0;
   line-height: 14px;
 `;
+
+export const CartCount = styled.div`
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 1%;
+  right: 16%;
+`;
+
+export const CartCountText = styled.h1`
+  color: #ffffff;
+  font-family: Comfortaa;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 14px;
+`;

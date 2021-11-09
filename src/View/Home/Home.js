@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import CartModal from '../../Components/CartModal/CartModal';
 import Header from '../../Components/Header/Header';
 import ProductList from '../../Components/ProductsList/ProductList';
 import { saveCartItemsInfo } from './Dispatch';
@@ -41,6 +40,10 @@ export class Home extends Component {
     this.props.saveCartItemsInfo(data);
   };
 
+  handleSaveCartItemsCount = (data) => {
+    this.props.saveCartItemsCountInfo(data);
+  };
+
   render() {
     return (
       <div>
@@ -50,13 +53,12 @@ export class Home extends Component {
           showCartModal={this.state.showCartModal}
           cartItems={this.props.home.cartItems}
           handleSaveCartItems={this.handleSaveCartItems}
+          cartItemsCount={this.props.home.cartItemsCount}
         />
         <ProductList
           cartItems={this.props.home.cartItems}
           handleSaveCartItems={this.handleSaveCartItems}
         />
-
-        {/* <CartModal /> */}
       </div>
     );
   }
@@ -68,4 +70,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { saveCartItemsInfo })(Home);
+export default connect(mapStateToProps, {
+  saveCartItemsInfo,
+})(Home);

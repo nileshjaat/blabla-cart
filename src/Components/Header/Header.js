@@ -9,6 +9,8 @@ import {
   UserContainer,
   UserImageContainer,
   UserDetails,
+  CartCount,
+  CartCountText,
 } from './styledComponents';
 import CartModal from '../CartModal/CartModal';
 
@@ -17,12 +19,19 @@ function Header({
   showCartModal,
   cartItems,
   handleSaveCartItems,
+  cartItemsCount,
 }) {
   return (
     <>
       <HeaderContainer>
         <HeaderTitle>BlablaCart</HeaderTitle>
         <DetailsContainer>
+          {cartItemsCount && cartItemsCount !== 0 ? (
+            <CartCount>
+              <CartCountText>{cartItemsCount}</CartCountText>
+            </CartCount>
+          ) : null}
+
           <img
             src={CartImage}
             alt="cart"
