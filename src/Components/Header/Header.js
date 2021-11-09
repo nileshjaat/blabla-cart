@@ -12,7 +12,12 @@ import {
 } from './styledComponents';
 import CartModal from '../CartModal/CartModal';
 
-function Header({ handleClick, showCartModal }) {
+function Header({
+  handleClick,
+  showCartModal,
+  cartItems,
+  handleSaveCartItems,
+}) {
   return (
     <>
       <HeaderContainer>
@@ -42,7 +47,11 @@ function Header({ handleClick, showCartModal }) {
           </UserContainer>
         </DetailsContainer>
 
-        <CartModal showCartModal={showCartModal} />
+        <CartModal
+          cartItems={cartItems}
+          showCartModal={showCartModal}
+          handleSaveCartItems={handleSaveCartItems}
+        />
       </HeaderContainer>
     </>
   );

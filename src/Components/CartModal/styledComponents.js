@@ -15,3 +15,13 @@ export const CartModalWrapper = styled.div`
 
   overflow: scroll;
 `;
+
+export const EmptyCartText = styled.h1`
+  color: #666666;
+  font-family: 'Public Sans';
+  font-size: 22px;
+  font-style: italic;
+  letter-spacing: 0;
+  line-height: 21px;
+  text-align: center;
+`;

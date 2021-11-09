@@ -13,7 +13,7 @@ import {
   ProductsListWrapper,
 } from './styledComponents';
 
-function ProductList() {
+function ProductList({ cartItems, handleSaveCartItems }) {
   const [showShoes, setShowShoes] = useState(true);
   const [showSunglasses, setShowSunglasses] = useState(false);
   const [showBags, setShowBags] = useState(false);
@@ -42,7 +42,14 @@ function ProductList() {
         {showShoes && (
           <>
             {shoes.map(({ id, name, image }) => (
-              <ProductItem key={id} id={id} name={name} image={image} />
+              <ProductItem
+                key={id}
+                id={id}
+                name={name}
+                image={image}
+                cartItems={cartItems}
+                handleSaveCartItems={handleSaveCartItems}
+              />
             ))}
           </>
         )}
@@ -50,7 +57,14 @@ function ProductList() {
         {showSunglasses && (
           <>
             {sunglasses.map(({ id, name, image }) => (
-              <ProductItem key={id} id={id} name={name} image={image} />
+              <ProductItem
+                key={id}
+                id={id}
+                name={name}
+                image={image}
+                cartItems={cartItems}
+                handleSaveCartItems={handleSaveCartItems}
+              />
             ))}
           </>
         )}
@@ -58,7 +72,14 @@ function ProductList() {
         {showBags && (
           <>
             {bags.map(({ id, name, image }) => (
-              <ProductItem key={id} id={id} name={name} image={image} />
+              <ProductItem
+                key={id}
+                id={id}
+                name={name}
+                image={image}
+                cartItems={cartItems}
+                handleSaveCartItems={handleSaveCartItems}
+              />
             ))}
           </>
         )}
