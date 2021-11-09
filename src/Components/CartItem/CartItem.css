@@ -1,0 +1,9 @@
+.trash-icon {
+ position: absolute;
+ right: 14px;
+ margin: 0 4px 4px 0;
+}
+
+.action-icon {
+    cursor: pointer;
+}

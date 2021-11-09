@@ -21,6 +21,7 @@ export const ProductItemName = styled.h1`
 `;
 
 export const Button = styled.button`
+  cursor: pointer;
   border: none;
   border-radius: 8px;
   background: linear-gradient(180deg, #e02124 0%, #971b13 100%);
